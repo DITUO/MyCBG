@@ -62,7 +62,11 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
-
+        'admin' => [
+            'driver'     => 'local',
+            'root'       => storage_path('app'),
+            'url' => '/storage/app',
+        ],
     ],
 
 ];

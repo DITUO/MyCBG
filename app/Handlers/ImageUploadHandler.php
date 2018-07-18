@@ -26,7 +26,7 @@ class ImageUploadHandler{
             $this->reduceSize($upload_path . '/' . $filename, $max_width);
         }
 
-        $aaa = "/$folder_name/$filename";
+        $aaa = "public/$folder_name/$filename";
 
         $data = ['path' => $aaa];
 

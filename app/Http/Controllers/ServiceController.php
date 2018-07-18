@@ -139,7 +139,7 @@ class ServiceController extends Controller
 	}
 	
 	public function test2(){  //所有的大区
-        $file_path = '../public/'."aaa.txt";
+        $file_path = './public/'."aaa.txt";
         if(file_exists($file_path)){
             $str = file_get_contents($file_path);//将整个文件内容读入到一个字符串中
             $strs = explode("\t", $str);
@@ -173,7 +173,7 @@ class ServiceController extends Controller
 	}
 	
 	public function test3(){//所有区  
-        $file_path = '../public/'."aaa.txt";
+        $file_path = './public/'."aaa.txt";
         if(file_exists($file_path)){
             $str = file_get_contents($file_path);//将整个文件内容读入到一个字符串中
             $strs = explode("\t", $str);
@@ -199,10 +199,6 @@ class ServiceController extends Controller
 			$res = Service::create($data);
 		}
     }
-
-	public function app(){
-		return redirect()->route('topics.index');
-	}
 
 	public function choose(Request $request){
 		$id = $request->input('id');

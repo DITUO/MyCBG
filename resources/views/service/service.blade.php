@@ -50,7 +50,7 @@
 
         <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
         <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="{{asset("js/vue.js")}}"></script>
+        <script src="{{asset("public/js/vue.js")}}"></script>
         <script>
             var app = new Vue({
                     el: '#app',

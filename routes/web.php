@@ -24,9 +24,6 @@ Route::get('test1', 'ServiceController@test1');
 Route::get('test2', 'ServiceController@test2');
 Route::get('test3', 'ServiceController@test3');
 
-Route::get('/app', 'ServiceController@app')->name('app');
-
-
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');

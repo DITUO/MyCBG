@@ -73,10 +73,13 @@ class CategoryController extends Controller
     {
         return Admin::grid(Category::class, function (Grid $grid) {
 
-            $grid->id('ID')->sortable();
+            $grid->column('id','ID')->sortable();
+            $grid->column('name','分类名称');
+            $grid->column('description','分类描述');
+            $grid->column('post_count','帖子数')->sortable();
 
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->column('created_at','创建时间');
+            $grid->column('updated_at','更新时间');
         });
     }
 
@@ -90,9 +93,12 @@ class CategoryController extends Controller
         return Admin::form(Category::class, function (Form $form) {
 
             $form->display('id', 'ID');
+            $form->text('name','分类名称');
+            $form->text('description','分类描述');
+            $form->number('post_count','帖子数');
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->display('created_at', '创建时间');
+            $form->display('updated_at', '更新时间');
         });
     }
 }

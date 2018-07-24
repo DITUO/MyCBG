@@ -7,7 +7,7 @@ Admin::registerAuthRoutes();
 Route::group([
     'prefix'        => config('admin.route.prefix'),
     'namespace'     => config('admin.route.namespace'),
-    'middleware'    => config('admin.route.middleware'),
+    'middleware'    => ['web','admin'],
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
@@ -15,4 +15,5 @@ Route::group([
     $router->resource('service', ServiceController::class);
     $router->resource('topic', TopicController::class);
     $router->resource('reply', ReplyController::class);
+    $router->resource('category', CategoryController::class);
 });

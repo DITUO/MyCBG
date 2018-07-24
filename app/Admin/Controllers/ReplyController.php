@@ -73,13 +73,15 @@ class ReplyController extends Controller
     {
         return Admin::grid(Reply::class, function (Grid $grid) {
 
-            $grid->id('ID')->sortable();
-            $grid->topic_id('话题ID')->sortable();
-            $grid->user_id('用户ID')->sortable();
-            $grid->content('内容');
+            $grid->column('id','ID')->sortable();
+            $grid->column('topic.title','标题');
+            $grid->column('user.name','用户');
+            $grid->column('content','内容')->display(function($content){
+                return str_limit($content,50,'...');
+            });
 
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->column('created_at','创建时间');
+            $grid->column('updated_at','更新时间');
             $grid->filter(function($filter){
 
                 // 去掉默认的id过滤器
@@ -101,12 +103,12 @@ class ReplyController extends Controller
         return Admin::form(Reply::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('topic_id', '话题ID');
-            $form->text('user_id', '用户ID');
+            $form->display('topic_id', '话题ID');
+            $form->display('user_id', '用户ID');
             $form->textarea('content', '内容');
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->display('created_at', '创建时间');
+            $form->display('updated_at', '更新时间');
         });
     }
 }

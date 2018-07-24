@@ -73,16 +73,16 @@ class ServiceController extends Controller
     {
         return Admin::grid(Service::class, function (Grid $grid) {
 
-            $grid->id('ID')->sortable();
-            $grid->name('名称');
-            $grid->level('等级');
-            $grid->gid('父级id');
-            $grid->status('状态,1正常0关闭');
+            $grid->column('id','ID')->sortable();
+            $grid->column('name','名称');
+            $grid->column('level','等级');
+            $grid->column('gid','父级id');
+            $grid->column('status','状态,1正常0关闭');
 
-            $grid->create_time('开服时间')->display(function($time){
+            $grid->column('create_time','开服时间')->display(function($time){
                 return date('Y-m-d H:i:s',$time);
             });
-            $grid->deleted_at('删除时间');
+            $grid->column('deleted_at','删除时间');
             $grid->filter(function($filter){
 
                 // 去掉默认的id过滤器

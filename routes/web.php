@@ -58,3 +58,10 @@ Route::get('replys', 'ReplyController@index')->name('reply.index');
 
 //notify
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
+
+
+Route::get('myTest', function(){
+    return view('myTest');
+});
+Route::get('getData', 'TestController@getData');
+Route::post('getData1', 'TestController@getData1');

@@ -77,7 +77,9 @@ class ServiceController extends Controller
             $grid->column('name','名称');
             $grid->column('level','等级');
             $grid->column('gid','父级id');
-            $grid->column('status','状态,1正常0关闭');
+            $grid->column('status','状态')->display(function ($status) {
+                return $status ? '正常' : '关闭';
+            });
 
             $grid->column('create_time','开服时间')->display(function($time){
                 return date('Y-m-d H:i:s',$time);
@@ -112,7 +114,9 @@ class ServiceController extends Controller
             $form->number('gid','父级id');
             $form->select('status','状态')->options($directors);
 
-            $form->display('create_time', '开服时间');
+            $form->display('create_time', '开服时间',function($create_time){
+                return date('Y-m-d H:i:s',$create_time);
+            });
             $form->display('deleted_at', '删除时间');
         });
     }

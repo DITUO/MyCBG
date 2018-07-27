@@ -16,7 +16,7 @@
                 <div class="media">
                     <div align="center">
                         <a href="{{ route('users.show', $topic->user->id) }}">
-                            <img class="thumbnail img-responsive" src="{{ URL::asset($topic->user->avatar) }}" width="300px" height="300px">
+                            <img class="thumbnail img-responsive" src="{{ URL::asset(Storage::url($topic->user->avatar)) }}" width="300px" height="300px">
                         </a>
                     </div>
                 </div>

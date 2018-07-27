@@ -104,7 +104,7 @@ class UserController extends Controller
             $form->display('id', 'ID');
             $form->text('name', '名称')->rules('required');
             $form->text('email', '邮箱')->rules('required');
-            // 自定义文件名
+            $form->image('avatar','头像')->uniqueName();
             $form->password('password', '密码')->rules('required|confirmed')->default(function ($form) {
                 return $form->model()->password;
             });;

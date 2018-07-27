@@ -11,7 +11,7 @@
             <div class="panel-body">
                 <div class="media">
                     <div align="center">
-                        <img class="thumbnail img-responsive" src="{{ URL::asset(Auth::user()->avatar) }}" width="300px" height="300px">
+                        <img class="thumbnail img-responsive" src="{{ URL::asset(Storage::url(Auth::user()->avatar)) }}" width="300px" height="300px">
                     </div>
                     <div class="media-body">
                         <hr>

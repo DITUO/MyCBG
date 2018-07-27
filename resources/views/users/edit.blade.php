@@ -36,7 +36,7 @@
 
                     @if($user->avatar)
                         <br>
-                        <img class="thumbnail img-responsive" src="{{ URL::asset(Auth::user()->avatar) }}" width="200" />
+                        <img class="thumbnail img-responsive" src="{{ URL::asset(Storage::url(Auth::user()->avatar)) }}" width="200" />
                     @endif
                 </div>
                 <div class="well well-sm">

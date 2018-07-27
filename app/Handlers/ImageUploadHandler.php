@@ -7,7 +7,7 @@ class ImageUploadHandler{
     protected $allowed_ext = ["png","jpg","gif","jpeg"];
 
     public function save($file,$folder,$file_prefix, $max_width = false){
-        $folder_name = "uploads/images/$folder/".date("Ym/d",time());
+        $folder_name = "upload/image/$folder/"/* .date("Ym/d",time()) */;
 
         $upload_path = public_path().'/'.$folder_name;
 
@@ -26,7 +26,7 @@ class ImageUploadHandler{
             $this->reduceSize($upload_path . '/' . $filename, $max_width);
         }
 
-        $aaa = "public/$folder_name/$filename";
+        $aaa = "$folder_name/$filename";
 
         $data = ['path' => $aaa];
 
